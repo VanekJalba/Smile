@@ -1,0 +1,172 @@
+body {
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    color: #fff;
+    -webkit-font-smothing: antialiased;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0; /* Убираем отступы у заголовков */ 
+}
+
+p {
+    margin: 0 0 10px;
+}
+/* Container 
+======================*/
+.container {
+    width: 100%; /* Ширина блока 100% */
+    max-width: 1170px; /* Но ширина нашего контента 1170 пикселей */
+    margin: 0 auto; /* Выравниаем по центру  - сверух-сизу = 0, слева-справа - auto*/
+}
+
+/* Header 
+=================== */
+
+.header {
+    width: 100%;
+    height: 100px;
+    position: absolute; /* Абсолютно позиционированные блоки полностью удаляется из нормального потока, не влияя на расположение сестринских элементов. */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Свойство z-index позволяет установить какой элемент в случае наложения будет сверху, а какой снизу. */
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    padding: 35px 0; /* 35пикс - это сверху и снизу, 0 - слева и справа. Отступы отмеряются по часвой стрелке */
+    border-bottom: 1px solid #515369; /* solid - границы будут нарисованы сплошной линией; */
+    align-items: center; /* Выравниваем элементы по горизонтали */
+}
+
+/* Navigation */
+
+.nav {
+    display: flex;
+    font-size: 13px; /* Размер для всех элементов входящих в nav  */
+    font-weight: 700; /* Размер для всех элементов входящих в nav  */
+    text-transform: uppercase;
+}
+
+.nav__link {
+    margin-left: 50px;
+    color: #fff;
+    text-decoration: none; /* Убираем подчеркивание */
+    opacity: 0.75;
+    transition: opacity .1s linear;
+}
+.nav__link:first-child {
+    margin-left: 0; /* У первого элемента в меню убирает отступ 50 пикс. */
+}
+
+.nav__link:hover {
+    /*text-decoration: underline; /* Через hover при наведении - показать подчеркивание */
+    opacity: 1;
+    
+}
+
+/* Intro */
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+    height: 750px;
+    padding-top: 100px; /* Так как хедер у нас position: absolute - то блоку intro - нужно дать отступ 100 пикс, 100 пикселей - это высота нашего хедера. Так как он у нас поверх конетнта - то нужно он него отступить. */
+    background: #31344e url("img/bg_header.png") center no-repeat / cover;
+
+}
+
+.intro__inner {     /* У текста есть ограничение ширины контента. Создаем новый блок и туда вставляем h1 и прописываем стили*/
+    width: 100%;
+    max-width: 970px;    /* Максимальная ширина этого блока будет 970 пикселей */
+    margin: 0 auto;     /* Вырваниваем по центру блок*/
+    text-align: center;   /*выравнивание по центру*/
+}
+
+.intro__title {
+    margin: 0 0 30px; /* Отделили элементы друг от друга отсутпом снизу 30 пикс*/
+    font-family: 'Open Sans', sans-serif;
+    font-size: 65px;
+    line-height: 1.1; /* Местрочный отступ*/
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase; /* Выводит все слова в элементе прописными буквами.*/
+}
+
+.intro_subtitle {
+    margin-bottom: 60px; /* отступ снизу для кнопки: от абзаца на 60 пикселей отодвинули кнопку*/
+    font-size: 22px;
+    color: #fff;
+    line-height: 1.5; /* По умолчанию - 1 = 22, 0,5 = 11, 1,5 = 33 (0,5 (11) + 0,5 (11) +0.5 (11) = 33 пикс */
+    font-weight: 400;
+}
+
+.btn {
+    display: inline-block; /* блочно-строчные элемент, можно задавать размеры, рамки и отступы, как и блочным элементам;
+их ширина по умолчанию зависит от содержания, а не растягивается на всю ширину контейнера; */
+    vertical-align: top; /* Выравние по вертикальной границе - top */
+    padding: 14px 40px; /* 14 - сверху снизу, 40 - слева справа. */
+    border-radius: 2px;
+    border: 0;
+    cursor: pointer;
+    font-family: inherit; /*Наследует шрифт от родителя - если у родителя Raleway - inherit его наследует.  */
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff; 
+    transition: background .1s linear;
+}
+
+.btn__red {
+    background-color: #e84545;
+
+}
+
+.btn__red:hover {
+    background-color: #dd3434;
+
+}
+
+/* Features */
+
+.features {
+    display: flex;
+    flex-wrap: wrap; /* Переносит элементы на новую строку, если они не помещаются */
+    margin: 95px 0; /* 100 = это сверху и снизу, 0 = слева и справа. Писать отступы сверху и снизу два раза не нужно */
+}
+
+.features__item {
+    width: 33.33333%; /* В строке 3 элемента = 100%, делим на 3 части равные и отсюда вытекает цифра = 33.33333%*/
+    padding: 0 40px; /* 40 пикселей - это растояние между элементами. Т.е в макете растояние между элементами 80 пикселей - делим на 2, для каждого по 40 пикселей. */
+    margin: 25px 0; /* Отступы для всех блоков , каждый блок сверху и снизу будет отделен друг от друга 25 пикселей */
+    text-align: center;   
+    
+}
+
+.features__icon {
+    margin-bottom: 25px; /* Отступ снизу от иконки */
+}
+
+.features__title {
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #2d3033;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.features__text {
+    font-size: 14px;
+    line-height: 1.5; /* Отностительные единицы */
+    color: #6c7279;
+}
