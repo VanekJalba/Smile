@@ -180,24 +180,70 @@ p {
 }
 
 .works__item {
-    width: 25%;
-    /* В ряду у нас 4 элемента. Задаем каждой по 25%  = что в итоге выйдет 100% по всей ширине браузера */
+    width: 25%; /* В ряду у нас 4 элемента. Задаем каждой по 25%  = что в итоге выйдет 100% по всей ширине браузера */
     height: 350px;
-    position: relative;
-    /* Чтобы картинка позиционировалось относительно контейнера works_item - и самой картинке прописываем - absolute */
-    overflow: hidden;
-    /* Скрываем все что вылазит за пределы контейнера */
+    border-bottom: 1px solid #fff; /*  Создаем границу снизу картинок*/
+    border-right: 1px solid #fff; /* Создаем границу справа */
+    position: relative; /* Чтобы картинка позиционировалось относительно контейнера works_item - и самой картинке прописываем - absolute */
+    overflow: hidden; /* Скрываем все что вылазит за пределы контейнера */
 }
 
 .works__photo {
     position: absolute;
-    top: 50%;
-    /* Один из методов выравнивания картнинки по оси Х и Y -  */
-    left: 50%;
-    /* Один из методов выравнивания картнинки по оси Х и Y -  */
+    top: 50%;  /* Один из методов выравнивания картнинки по оси Х и Y -  */
+    left: 50%; /* Один из методов выравнивания картнинки по оси Х и Y -  */
     /* top: 0; Прижимаем картинку вверх */
     /* left: 0; Прижимаем картинку слева */
     z-index: 1;
+    transform: translate3d(-50%, -50%, 0);
+}
 
-    /* transform: translate3d(-50%, -50%, 0); */
+.works__item:hover .works__content /* при наведении на блок works_item отображаем works_content - */ {
+    opacity: 1;
+}
+
+.works__content {
+    display: flex;
+    flex-direction: column; /* Новый элемент в этом блоке переходил на новую строку и занимал 100% экрана */
+    justify-content: center; /* Выравниваес контент по центру по вертикали */
+    text-align-last: center;     /* Выравниваес контент по центру по горизонтали */
+    position: absolute;
+    width: 100%; /* Пишем 100 проц - чтоб он занимал всю высоту и ширину даного блока */
+    height: 100%; /* Пишем 100 проц - чтоб он занимал всю высоту и ширину даного блока */
+    opacity: 0; /* Скрываем красный квадарт. Нужно отобразить его при наведении */
+    background-color: rgba(232, 69, 69, 0.9);
+    top: 0;
+    left: 0;
+    z-index: 2; /* Z-index пишем 2 - так как он должен быть поверх картнки */
+    transition: opacity .2s linear; /* Делает плавный переход при наведении */
+
+}
+
+.works__title {
+    margin-bottom: 5px; /* Делаем оступ от заголовка */
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.works__text {
+    font-size-adjust: 14px;
+    color: #fff;
+}
+
+/* Team */
+
+.team {
+    margin: 100px;
+
+}
+
+.team__inner {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.team__item {
+    width: 25%;
 }
