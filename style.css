@@ -247,3 +247,29 @@ p {
 .team__item {
     width: 25%;
 }
+
+.team__photo {
+    display: block; /* */
+    max-width: 100%; /* чтоб при другом разрешении картинка также занимала 100%. Сейчас она 300 пиксей и занимает 100%, если будет 200 пикселй - тоже будет знимать 100%. */
+    height: auto; /* Ширина будет уменшатся, и высота также будет уменьшатся пропорционально */
+    margin-bottom: 20px;
+}
+
+.team__name {
+    margin-bottom: 8px; /* Отступ от Имя и Фамилия */
+    font-size: 22px;
+    color: #2d3033;
+}
+
+.team__prof {
+    margin-bottom: 15px; /* Отступ сверху от професии */
+    font-size: 13px;
+    color: #e8454545;
+    text-transform: uppercase;
+}
+
+.team__text {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #6c7279;
+}
